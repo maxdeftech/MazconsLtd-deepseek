@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mazcons Limited - Dropshipping Solutions</title>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link to Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Brand Color Palette - Defined as CSS variables for easy updates */
+            --deep-teal: #006D6F;
+            --caribbean-aqua: #2EC4B6;
+            --warm-sand: #E8DCC2;
+            --coral-orange: #FF6F59;
+            --charcoal: #333333;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            
+            /* Glass theme variables */
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            
+            /* Animation variables */
+            --transition-normal: 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background: linear-gradient(135deg, var(--warm-sand) 0%, #f5f1e8 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--caribbean-aqua);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title {
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 2rem;
+            background: var(--coral-orange);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(255, 111, 89, 0.3);
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            background: #ff5540;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 111, 89, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--caribbean-aqua);
+            color: var(--caribbean-aqua);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--caribbean-aqua);
+            color: white;
+        }
+
+        .btn-accent {
+            background: linear-gradient(135deg, var(--caribbean-aqua) 0%, #26a89d 100%);
+            border: none;
+            color: white;
+            box-shadow: 0 4px 15px rgba(46, 196, 182, 0.3);
+        }
+
+        .btn-accent:hover {
+            background: linear-gradient(135deg, #26a89d 0%, var(--caribbean-aqua) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(46, 196, 182, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* Glass Theme Styles */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            padding: 2rem;
+            transition: var(--transition-normal);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Form Messages */
+        .form-message {
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+
+        .form-message.success {
+            background: rgba(46, 196, 182, 0.15);
+            color: var(--deep-teal);
+            border: 1px solid var(--caribbean-aqua);
+            display: block;
+        }
+
+        .form-message.error {
+            background: rgba(255, 111, 89, 0.15);
+            color: #d34532;
+            border: 1px solid var(--coral-orange);
+            display: block;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Header Styles - Modern Glass Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.2rem 0;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition-normal);
+        }
+
+        header.scrolled {
+            padding: 0.8rem 0;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* LOGO AREA - Professional Typography Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--deep-teal);
+            letter-spacing: -0.5px;
+            transition: var(--transition-normal);
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+            color: #00585a;
+        }
+
+        .logo span {
+            color: var(--coral-orange);
+        }
+
+        .logo-icon {
+            margin-right: 0.5rem;
+            font-size: 2rem;
+            color: var(--caribbean-aqua);
+        }
+
+        /* Navigation Styles - Updated for better mobile display */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--caribbean-aqua);
+            transition: var(--transition-normal);
+        }
+
+        .nav-links a:hover {
+            color: var(--deep-teal);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        /* UPDATED: Better Partner Button in Header */
+        .header-partner-btn {
+            background: linear-gradient(135deg, var(--caribbean-aqua) 0%, #26a89d 100%);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition-normal);
+            box-shadow: 0 4px 12px rgba(46, 196, 182, 0.3);
+            border: none;
+            white-space: nowrap;
+        }
+
+        .header-partner-btn:hover {
+            background: linear-gradient(135deg, #26a89d 0%, var(--caribbean-aqua) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(46, 196, 182, 0.4);
+        }
+
+        .header-partner-btn i {
+            font-size: 0.9rem;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--deep-teal);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 10rem;
+            padding-bottom: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 109, 111, 0.1) 0%, rgba(46, 196, 182, 0.08) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            color: var(--deep-teal);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--charcoal);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image .glass-card {
+            padding: 0;
+            overflow: hidden;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* About Us Section */
+        .about-section {
+            background: linear-gradient(135deg, rgba(46, 196, 182, 0.05) 0%, rgba(255, 111, 89, 0.05) 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image .glass-card {
+            padding: 0;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-points {
+            margin-top: 2rem;
+        }
+
+        .about-point {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-point i {
+            color: var(--caribbean-aqua);
+            font-size: 1.3rem;
+            margin-right: 1rem;
+            margin-top: 0.3rem;
+        }
+
+        /* How It Works Section */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--caribbean-aqua);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 8px 20px rgba(46, 196, 182, 0.3);
+        }
+
+        /* Products Section */
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-category {
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .product-category i {
+            font-size: 2.5rem;
+            color: var(--deep-teal);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact Form Section */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(0, 109, 111, 0.05) 0%, rgba(46, 196, 182, 0.05) 100%);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-form .glass-card {
+            padding: 2.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--deep-teal);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 1px solid rgba(0, 109, 111, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition-normal);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--caribbean-aqua);
+            box-shadow: 0 0 0 3px rgba(46, 196, 182, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            padding: 2rem;
+        }
+
+        .info-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--deep-teal);
+            margin-bottom: 1.2rem;
+        }
+
+        .info-card h3 i {
+            color: var(--caribbean-aqua);
+        }
+
+        /* Partner Section - Fixed alignment */
+        .partner-section {
+            padding-bottom: 2rem;
+        }
+
+        .partner-content {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .partner-content h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Fixed: Green line under title in partner section */
+        .partner-content h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--deep-teal);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            color: var(--warm-sand);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--caribbean-aqua);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-normal);
+        }
+
+        .social-links a:hover {
+            background: var(--caribbean-aqua);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--coral-orange);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-normal);
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(255, 111, 89, 0.4);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #ff5540;
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+            
+            .header-partner-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content, .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.4rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .about-image .glass-card {
+                height: 300px;
+            }
+            
+            .header-partner-btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Updated Mobile Navigation */
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 2rem;
+                text-align: center;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition-normal);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                border-radius: 0 0 20px 20px;
+                z-index: 999;
+                gap: 1.5rem;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links a {
+                font-size: 1.1rem;
+                padding: 0.8rem 0;
+                width: 100%;
+            }
+            
+            /* UPDATED: Better mobile button styling */
+            .nav-links .header-partner-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 0.9rem 1.5rem;
+                font-size: 1rem;
+                margin-top: 0.5rem;
+                background: linear-gradient(135deg, var(--caribbean-aqua) 0%, #26a89d 100%);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                order: 2;
+            }
+            
+            .header-partner-btn.desktop-only {
+                display: none;
+            }
+            
+            .header-partner-btn.mobile-only {
+                display: flex !important;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .hero {
+                padding-top: 8rem;
+            }
+            
+            .steps-container, .products-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .logo-icon {
+                font-size: 1.7rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .header-partner-btn.mobile-only {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .glass-card {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            .partner-content {
+                padding: 3rem 1.5rem;
+            }
+            
+            .header-partner-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .logo-icon {
+                font-size: 1.5rem;
+                margin-right: 0.3rem;
+            }
+            
+            .header-partner-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Header Section -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <!-- LOGO AREA: Clickable typography logo -->
+                    <a href="#home" class="logo">
+                        <i class="fas fa-shipping-fast logo-icon"></i>
+                        MAZ<span>CONS</span>
+                    </a>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <nav>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#integration">Integration</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <!-- UPDATED: Better Partner Button in Mobile Navigation -->
+                        <li>
+                            <a href="#partner" class="header-partner-btn mobile-only">
+                                <i class="fas fa-handshake"></i> Partner With Us
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <!-- UPDATED: Better Partner Button in Desktop Header -->
+                    <a href="#partner" class="header-partner-btn desktop-only">
+                        <i class="fas fa-handshake"></i> Partner With Us
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content animate">
+                <div class="hero-text">
+                    <h1>Seamless Dropshipping for Caribbean & Latin American Retailers</h1>
+                    <p>Mazcons Limited provides reliable, scalable dropshipping solutions that reduce operational burden, improve cash flow, and expand access to diverse, high-demand products.</p>
+                    <div class="hero-buttons">
+                        <a href="#about" class="btn">Learn About Us</a>
+                        <a href="#partner" class="btn btn-accent" style="margin-left: 1rem;">
+                            <i class="fas fa-handshake"></i> Become a Partner
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="glass-card">
+                        <!-- Hero Image: Replace with your own image -->
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Dropshipping Logistics">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>About Mazcons Limited</h2>
+                <p>Your trusted dropshipping partner in the Caribbean and Latin America</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-image animate">
+                    <div class="glass-card">
+                        <!-- About Us Image: Replace with your own image -->
+                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Mazcons Team and Operations">
+                    </div>
+                </div>
+                
+                <div class="about-text animate">
+                    <h2>Who We Are</h2>
+                    <p>Mazcons Limited is a Jamaica-based dropshipping and fulfillment company established to serve retailers across the Caribbean and Latin America. We are more than just a logistics provider; we are strategic partners committed to empowering businesses with innovative supply chain solutions.</p>
+                    
+                    <p>Founded on the principles of reliability, transparency, and regional expertise, we understand the unique challenges and opportunities facing retailers in our markets. Our team combines decades of experience in logistics, retail, and e-commerce to deliver exceptional value to our partners.</p>
+                    
+                    <div class="about-points">
+                        <div class="about-point">
+                            <i class="fas fa-bullseye"></i>
+                            <div>
+                                <h3>Our Mission</h3>
+                                <p>To provide Caribbean and Latin American retailers with seamless, reliable, and scalable dropshipping solutions that reduce operational burden, improve cash flow, and expand access to diverse, high-demand products.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="about-point">
+                            <i class="fas fa-eye"></i>
+                            <div>
+                                <h3>Our Vision</h3>
+                                <p>To become the leading dropshipping partner in the region, revolutionizing retail supply chains and enabling businesses to thrive in the digital economy.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- What We Do Section -->
+            <div class="section-title text-center" style="margin-top: 4rem;">
+                <h2>What We Do & How We Do It</h2>
+                <p>Our comprehensive dropshipping and fulfillment services</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="glass-card step">
+                    <div class="step-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Strategic Partnerships</h3>
+                    <p>We partner with brick-and-mortar stores, online boutiques, and digital marketplaces to supply high-quality products without inventory risk. Our curated selection includes men's and women's clothing, accessories, and household essentials.</p>
+                </div>
+                
+                <div class="glass-card step">
+                    <div class="step-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3>Regional Fulfillment</h3>
+                    <p>Operating from our centralized warehouse and fulfillment center in Jamaica, we provide fast regional shipping across the Caribbean and Latin America through established shipping partnerships and optimized logistics networks.</p>
+                </div>
+                
+                <div class="glass-card step">
+                    <div class="step-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Automated Operations</h3>
+                    <p>Our advanced inventory management system integrates seamlessly with retailer platforms, enabling automated order routing, real-time tracking, and efficient processing that reduces errors and speeds up delivery times.</p>
+                </div>
+            </div>
+            
+            <!-- Why Choose Us Section -->
+            <div class="section-title text-center" style="margin-top: 4rem;">
+                <h2>Why We Are The Best Choice</h2>
+                <p>What sets Mazcons apart from other dropshipping providers</p>
+            </div>
+            
+            <div class="products-container">
+                <div class="glass-card product-category">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Regional Expertise</h3>
+                    <p>As a Jamaica-based company, we understand the Caribbean and Latin American markets intimately. We navigate customs, shipping regulations, and regional preferences that international providers often overlook.</p>
+                </div>
+                
+                <div class="glass-card product-category">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Quality Assurance</h3>
+                    <p>All products undergo rigorous quality checks from vetted suppliers. We maintain strict standards for apparel, accessories, and household goods to ensure customer satisfaction and protect your brand reputation.</p>
+                </div>
+                
+                <div class="glass-card product-category">
+                    <i class="fas fa-headset"></i>
+                    <h3>Personalized Support</h3>
+                    <p>We provide dedicated onboarding support, technical integration assistance, and responsive customer service. Our team is committed to your success with tailored solutions for your specific business needs.</p>
+                </div>
+                
+                <div class="glass-card product-category">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Scalable Solutions</h3>
+                    <p>Whether you're a small boutique or a growing e-commerce platform, our services scale with your business. No minimum order requirements and flexible terms that grow alongside your success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>How Our Dropshipping Works</h2>
+                <p>A simple 4-step process to expand your retail business without inventory risk</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="glass-card step animate">
+                    <div class="step-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>1. List Products</h3>
+                    <p>Retailers list Mazcons' curated products on their websites, stores, or social media platforms.</p>
+                </div>
+                
+                <div class="glass-card step animate">
+                    <div class="step-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>2. Customer Orders</h3>
+                    <p>When a customer places an order, the retailer forwards the order details to Mazcons.</p>
+                </div>
+                
+                <div class="glass-card step animate">
+                    <div class="step-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>3. We Fulfill</h3>
+                    <p>Mazcons processes, packages, and ships the product directly to the customer.</p>
+                </div>
+                
+                <div class="glass-card step animate">
+                    <div class="step-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>4. You Profit</h3>
+                    <p>Retailers earn the markup between wholesale and retail price without inventory management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" style="background: rgba(232, 220, 194, 0.2);">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Product Catalog</h2>
+                <p>Curated categories aligned with regional consumer demand</p>
+            </div>
+            
+            <div class="products-container">
+                <div class="glass-card product-category animate">
+                    <i class="fas fa-tshirt"></i>
+                    <h3>Apparel</h3>
+                    <p>High-quality men's and women's clothing for every occasion. From casual wear to formal attire.</p>
+                </div>
+                
+                <div class="glass-card product-category animate">
+                    <i class="fas fa-gem"></i>
+                    <h3>Accessories</h3>
+                    <p>Fashion accessories, jewelry, bags, and other complementary products to enhance any outfit.</p>
+                </div>
+                
+                <div class="glass-card product-category animate">
+                    <i class="fas fa-home"></i>
+                    <h3>Household Essentials</h3>
+                    <p>Towels, sheets, laundry products, and cleaning supplies for homes and hospitality businesses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Section -->
+    <section id="integration">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Retailer Integration</h2>
+                <p>Seamlessly connect your existing store with our fulfillment system</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="glass-card step animate">
+                    <h3>Shopify</h3>
+                    <p>Direct integration with Shopify stores for automatic order forwarding and inventory sync.</p>
+                    <a href="#contact" class="btn btn-accent" style="margin-top: 1rem;">
+                        <i class="fas fa-plug"></i> Get Shopify Setup
+                    </a>
+                </div>
+                
+                <div class="glass-card step animate">
+                    <h3>WooCommerce/Wix</h3>
+                    <p>Simple plugin installation for WordPress/WooCommerce and Wix store integration.</p>
+                    <a href="#contact" class="btn btn-accent" style="margin-top: 1rem;">
+                        <i class="fas fa-cogs"></i> Integration Support
+                    </a>
+                </div>
+                
+                <div class="glass-card step animate">
+                    <h3>Social Commerce</h3>
+                    <p>Manual order submission for Instagram, TikTok, WhatsApp, and Facebook sellers.</p>
+                    <a href="#contact" class="btn btn-accent" style="margin-top: 1rem;">
+                        <i class="fas fa-hashtag"></i> Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Contact Us</h2>
+                <p>Get in touch to learn more about our dropshipping solutions</p>
+            </div>
+            
+            <div class="contact-container">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <div class="glass-card">
+                        <h3>Send Us a Message</h3>
+                        
+                        <!-- Form Status Messages -->
+                        <div id="formMessage" class="form-message"></div>
+                        
+                        <!-- 
+                            UPDATED: Email form that sends to klaudeglobal@gmail.com
+                            Using Formspree as a reliable email forwarding service
+                        -->
+                        <form id="contactForm" action="https://formspree.io/f/xjvnygob" method="POST">
+                            <!-- Hidden field to identify form source and set recipient email -->
+                            <input type="hidden" name="_subject" value="New Contact Form Submission - Mazcons Limited">
+                            <input type="hidden" name="_replyto" id="replyTo">
+                            <input type="hidden" name="_cc" value="klaudeglobal@gmail.com">
+                            <input type="text" name="_gotcha" style="display:none">
+                            
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="your@email.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Your Phone Number">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="business">Business Name</label>
+                                <input type="text" id="business" name="business" class="form-control" placeholder="Your Business Name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="platform">Current Platform</label>
+                                <select id="platform" name="platform" class="form-control">
+                                    <option value="">Select your platform</option>
+                                    <option value="shopify">Shopify</option>
+                                    <option value="woocommerce">WooCommerce</option>
+                                    <option value="wix">Wix</option>
+                                    <option value="social">Social Media</option>
+                                    <option value="brick">Brick & Mortar</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="interest">Interest Area</label>
+                                <select id="interest" name="interest" class="form-control">
+                                    <option value="">What are you interested in?</option>
+                                    <option value="partnership">Becoming a Retailer Partner</option>
+                                    <option value="integration">Platform Integration</option>
+                                    <option value="products">Product Catalog</option>
+                                    <option value="pricing">Pricing Information</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="other">Other Inquiry</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" class="form-control" placeholder="Tell us about your business and how we can help..." required></textarea>
+                            </div>
+                            
+                            <!-- Formspree requires this for free tier -->
+                            <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+                            
+                            <button type="submit" id="submitBtn" class="btn btn-accent" style="width: 100%;">
+                                <span id="submitText">
+                                    <i class="fas fa-paper-plane"></i> Send Message to klaudeglobal@gmail.com
+                                </span>
+                                <span id="submitSpinner" class="spinner" style="display: none;"></span>
+                            </button>
+                        </form>
+                        
+                        <!-- Fallback message for browsers without JavaScript -->
+                        <noscript>
+                            <div class="form-message">
+                                <p>Please enable JavaScript to use this contact form, or email us directly at klaudeglobal@gmail.com</p>
+                            </div>
+                        </noscript>
+                    </div>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <div class="glass-card info-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> Business Address</h3>
+                        <!-- ADDRESS: Update with your business address -->
+                        <p>Mazcons Limited<br>
+                        Kingston, Jamaica<br>
+                        Caribbean Region</p>
+                    </div>
+                    
+                    <div class="glass-card info-card">
+                        <h3><i class="fas fa-phone-alt"></i> Contact Information</h3>
+                        <!-- CONTACT INFO: Update with your contact details -->
+                        <p><strong>Phone:</strong> +1 (876) XXX-XXXX</p>
+                        <p><strong>Email:</strong> info@mazcons.com</p>
+                        <p><strong>WhatsApp:</strong> +1 (876) XXX-XXXX</p>
+                    </div>
+                    
+                    <div class="glass-card info-card">
+                        <h3><i class="fas fa-clock"></i> Business Hours</h3>
+                        <p><strong>Monday - Friday:</strong> 8:00 AM - 6:00 PM</p>
+                        <p><strong>Saturday:</strong> 9:00 AM - 2:00 PM</p>
+                        <p><strong>Sunday:</strong> Closed</p>
+                    </div>
+                    
+                    <div class="glass-card info-card">
+                        <h3><i class="fas fa-paper-plane"></i> Direct Email</h3>
+                        <p>You can also email us directly at:</p>
+                        <p><strong>Primary Contact:</strong> klaudeglobal@gmail.com</p>
+                        <p><strong>Partnerships:</strong> partnerships@mazcons.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Section - Fixed alignment -->
+    <section class="partner-section" id="partner">
+        <div class="container">
+            <div class="glass-card partner-content">
+                <h2>Ready to Partner With Us?</h2>
+                <p style="max-width: 700px; margin: 0 auto 2rem;">Join our network of retailers across the Caribbean and Latin America. No minimum order requirements and free onboarding support.</p>
+                <a href="#contact" class="btn btn-accent" style="font-size: 1.1rem; padding: 1rem 3rem;">
+                    <i class="fas fa-handshake"></i> Start Your Application
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Mazcons Limited</h3>
+                    <p>A Jamaica-based dropshipping and fulfillment company serving retailers across the Caribbean and Latin America.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#products">Product Catalog</a></li>
+                        <li><a href="#integration">Retailer Integration</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#how-it-works">Dropshipping Fulfillment</a></li>
+                        <li><a href="#integration">Platform Integration</a></li>
+                        <li><a href="#contact">Product Photography</a></li>
+                        <li><a href="#contact">Marketing Support</a></li>
+                        <li><a href="#contact">Quality Assurance</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> Mazcons Limited. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">Form submissions are sent to klaudeglobal@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for interactive functionality
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Back to top button visibility
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements to animate
+        document.querySelectorAll('.step, .product-category, .about-image, .about-text').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Contact form submission to klaudeglobal@gmail.com via Formspree
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Get form elements
+            const form = this;
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const submitSpinner = document.getElementById('submitSpinner');
+            const formMessage = document.getElementById('formMessage');
+            const emailInput = document.getElementById('email');
+            
+            // Set reply-to email for form submission
+            document.getElementById('replyTo').value = emailInput.value;
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitText.innerHTML = '<i class="fas fa-paper-plane"></i> Sending...';
+            submitSpinner.style.display = 'inline-block';
+            formMessage.className = 'form-message';
+            formMessage.style.display = 'none';
+            
+            try {
+                // Collect form data
+                const formData = new FormData(form);
+                
+                // IMPORTANT: This form submits to Formspree which forwards to klaudeglobal@gmail.com
+                // The action URL uses Formspree free service: action="https://formspree.io/f/xjvnygob"
+                // Formspree will forward the email to klaudeglobal@gmail.com
+                
+                // Send form data to Formspree
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                // Check if the submission was successful
+                if (response.ok) {
+                    // Show success message
+                    formMessage.innerHTML = `
+                        <p><i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.</p>
+                        <p>We have sent your inquiry to <strong>klaudeglobal@gmail.com</strong> and will contact you soon.</p>
+                    `;
+                    formMessage.className = 'form-message success';
+                    formMessage.style.display = 'block';
+                    
+                    // Reset form
+                    form.reset();
+                    
+                    // Scroll to show success message
+                    formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || 'Form submission failed');
+                }
+                
+            } catch (error) {
+                // Show error message
+                console.error('Form submission error:', error);
+                
+                // Fallback option: Provide alternative contact methods
+                formMessage.innerHTML = `
+                    <p><i class="fas fa-exclamation-triangle"></i> There was an issue sending your message.</p>
+                    <p>Please try one of these alternatives:</p>
+                    <p>1. Email us directly at: <strong>klaudeglobal@gmail.com</strong></p>
+                    <p>2. Call us at: <strong>+1 (876) XXX-XXXX</strong></p>
+                    <p>3. Try submitting again in a few minutes.</p>
+                `;
+                formMessage.className = 'form-message error';
+                formMessage.style.display = 'block';
+                
+                // Scroll to show error message
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitText.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message to klaudeglobal@gmail.com';
+                submitSpinner.style.display = 'none';
+            }
+        });
+        
+        // Form validation helper
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        // Initialize with header state
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        }
+        
+        // Log form submission endpoint for debugging
+        console.log('Contact form configured to send emails to: klaudeglobal@gmail.com');
+        console.log('Using Formspree as the email forwarding service.');
+        
+        // Add touch feedback for mobile buttons
+        document.querySelectorAll('.header-partner-btn, .btn').forEach(button => {
+            button.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+            
+            button.addEventListener('touchend', function() {
+                this.style.transform = '';
+            });
+        });
+    </script>
+</body>
+</html>
